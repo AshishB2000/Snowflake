@@ -9,7 +9,7 @@ storage_provider= s3
 enabled= true
 storage_aws_role_arn = '-----'
 storage_allowed_locations=('s3://showflakeashish110/csvfile' , 's3://showflakeashish110/jsondata') -- can porovide multiple buckets
- comment='<comment>'
+ comment='<this is comment>'
 
  desc integration s3_bucket
 
@@ -55,4 +55,7 @@ empty_field_as_null = true;
 
  copy into WORK1_DB.PUBLIC.data_froms3
  from @MANAGE_DB.EXTERNAL_STAGES.s3csv
- 
+ on_error='Continue'
+
+
+ select * from WORK1_DB.PUBLIC.data_froms3
